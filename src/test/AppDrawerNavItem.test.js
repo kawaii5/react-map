@@ -1,9 +1,7 @@
 import React from "react";
 import { mount, shallow } from "enzyme";
 import AppDrawerNavItem from "../AppDrawerNavItem";
-import ListItem from "@material-ui/core/ListItem";
 import Button from "@material-ui/core/Button";
-import sinon from 'sinon';
 
 describe("AppDrawerNavItem renders depth 0", () => {
   let props;
@@ -90,6 +88,10 @@ describe("AppDrawerNavItem renders depth 1 - red", () => {
     expect(svg.props().fill).toBe("red");
   });
 
+  it("always rendered a Menu", () => {
+    const menu = appDrawerNavItem1().find("ListItem").find("Menu");
+    expect(menu.length).toBeGreaterThan(0);
+  });
 });
 
 describe("AppDrawerNavItem renders depth 1 - grey", () => {
@@ -149,5 +151,9 @@ describe("AppDrawerNavItem renders depth 1 - grey", () => {
     expect(svg.props().fill).toBe("gray");
   });
 
+  it("always rendered a Menu", () => {
+    const menu = appDrawerNavItem1().find("ListItem").find("Menu");
+    expect(menu.length).toBeGreaterThan(0);
+  });
 });
 
