@@ -29,6 +29,31 @@ describe("AppDrawerNavItem renders depth 0", () => {
     expect(listItem.length).toBeGreaterThan(0);
   });
 
+  it("always rendered a Button", () => {
+    const button = appDrawerNavItem0().find("ListItem").find("Button");
+    expect(button.length).toBeGreaterThan(0);
+  });
+
+  it("always rendered a div", () => {
+    const div = appDrawerNavItem0().find("ListItem").find("Button").find("div");
+    expect(div.length).toBeGreaterThan(0);
+  });
+
+  it("always rendered a div in div", () => {
+    const div = appDrawerNavItem0().find("ListItem").find("Button").find("div").find("div");
+    expect(div.length).toBeGreaterThan(0);
+  });
+
+  it("always rendered a svg", () => {
+    const svg = appDrawerNavItem0().find("ListItem").find("Button").find("div").find("div").find("svg");
+    expect(svg.length).toBeGreaterThan(0);
+  });
+
+  it("always rendered a Collapse", () => {
+    const collapse = appDrawerNavItem0().find("ListItem").find("Collapse");
+    expect(collapse.length).toBeGreaterThan(0);
+  });
+
 });
 
 describe("AppDrawerNavItem renders depth 1 - red", () => {
@@ -92,6 +117,7 @@ describe("AppDrawerNavItem renders depth 1 - red", () => {
     const menu = appDrawerNavItem1().find("ListItem").find("Menu");
     expect(menu.length).toBeGreaterThan(0);
   });
+
 });
 
 describe("AppDrawerNavItem renders depth 1 - grey", () => {
@@ -155,5 +181,6 @@ describe("AppDrawerNavItem renders depth 1 - grey", () => {
     const menu = appDrawerNavItem1().find("ListItem").find("Menu");
     expect(menu.length).toBeGreaterThan(0);
   });
+
 });
 
