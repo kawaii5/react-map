@@ -57,5 +57,10 @@ describe("AppDrawerNavItem rendersi depth 1", () => {
     expect(listItem.length).toBeGreaterThan(0);
   });
 
+  it("always rendered a Button", () => {
+    const button = appDrawerNavItem1().find("ListItem").find("Button");
+    expect(button.length).toBeGreaterThan(0);
+  });
+
 });
 
