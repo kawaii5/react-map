@@ -1,6 +1,9 @@
 import React from "react";
-import { mount } from "enzyme";
+import { mount, shallow } from "enzyme";
 import AppDrawerNavItem from "../AppDrawerNavItem";
+import ListItem from "@material-ui/core/ListItem";
+import Button from "@material-ui/core/Button";
+import sinon from 'sinon';
 
 describe("AppDrawerNavItem renders depth 0", () => {
   let props;
@@ -30,7 +33,7 @@ describe("AppDrawerNavItem renders depth 0", () => {
 
 });
 
-describe("AppDrawerNavItem rendersi depth 1", () => {
+describe("AppDrawerNavItem renders depth 1 - red", () => {
   let props;
   let mountedDrawerNav;
   const appDrawerNavItem1 = () => {
@@ -68,13 +71,82 @@ describe("AppDrawerNavItem rendersi depth 1", () => {
   });
 
   it("always rendered a Div in div", () => {
-    const div = appDrawerNavItem1().find("ListItem").find("Button").find("div").find("div");
-    expect(div.length).toBeGreaterThan(0);
+    const div2 = appDrawerNavItem1().find("ListItem").find("Button").find("div").find("div");
+    expect(div2.length).toBeGreaterThan(0);
   });
 
   it("always rendered a svg", () => {
     const svg = appDrawerNavItem1().find("ListItem").find("Button").find("div").find("div").find("svg");
     expect(svg.length).toBeGreaterThan(0);
+  });
+
+  it("always rendered a text", () => {
+    const text = appDrawerNavItem1().find("ListItem").find("Button").find("div").find("div").find("svg").find("text");
+    expect(text.length).toBeGreaterThan(0);
+  });
+
+  it("color of text", () => {
+    const svg = appDrawerNavItem1().find("ListItem").find("Button").find("div").find("div").find("svg").find("text");
+    expect(svg.props().fill).toBe("red");
+  });
+
+});
+
+describe("AppDrawerNavItem renders depth 1 - grey", () => {
+  let props;
+  let mountedDrawerNav;
+  const appDrawerNavItem1 = () => {
+    if (!mountedDrawerNav) {
+      mountedDrawerNav = mount(
+        <AppDrawerNavItem {...props} />
+      );
+    }
+    return mountedDrawerNav;
+  }
+
+  beforeEach(() => {
+    props = {
+      depth: 1,
+      title: "a",
+      isActiveNotif: 0,
+    };
+    mountedDrawerNav = undefined;
+  });
+  
+  // All tests will go here
+  it("always rendered a ListItem", () => {
+    const listItem = appDrawerNavItem1().find("ListItem");
+    expect(listItem.length).toBeGreaterThan(0);
+  });
+
+  it("always rendered a Button", () => {
+    const button = appDrawerNavItem1().find("ListItem").find("Button");
+    expect(button.length).toBeGreaterThan(0);
+  });
+
+  it("always rendered a Div", () => {
+    const div = appDrawerNavItem1().find("ListItem").find("Button").find("div");
+    expect(div.length).toBeGreaterThan(0);
+  });
+
+  it("always rendered a Div in div", () => {
+    const div2 = appDrawerNavItem1().find("ListItem").find("Button").find("div").find("div");
+    expect(div2.length).toBeGreaterThan(0);
+  });
+
+  it("always rendered a svg", () => {
+    const svg = appDrawerNavItem1().find("ListItem").find("Button").find("div").find("div").find("svg");
+    expect(svg.length).toBeGreaterThan(0);
+  });
+
+  it("always rendered a text", () => {
+    const text = appDrawerNavItem1().find("ListItem").find("Button").find("div").find("div").find("svg").find("text");
+    expect(text.length).toBeGreaterThan(0);
+  });
+
+  it("color of text", () => {
+    const svg = appDrawerNavItem1().find("ListItem").find("Button").find("div").find("div").find("svg").find("text");
+    expect(svg.props().fill).toBe("gray");
   });
 
 });
