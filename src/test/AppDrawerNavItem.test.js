@@ -5,7 +5,7 @@ import AppDrawerNavItem from "../AppDrawerNavItem";
 describe("AppDrawerNavItem renders depth 0", () => {
   let props;
   let mountedDrawerNav;
-  const appDrawerNavItem = () => {
+  const appDrawerNavItem0 = () => {
     if (!mountedDrawerNav) {
       mountedDrawerNav = mount(
         <AppDrawerNavItem {...props} />
@@ -24,16 +24,16 @@ describe("AppDrawerNavItem renders depth 0", () => {
   
   // All tests will go here
   it("always rendered a ListItem", () => {
-    const listItem = appDrawerNavItem().find("ListItem");
-    expect(listItems.length).toBeGreaterThan(0);
+    const listItem = appDrawerNavItem0().find("ListItem");
+    expect(listItem.length).toBeGreaterThan(0);
   });
 
 });
 
-describe("AppDrawerNavItem renders", () => {
+describe("AppDrawerNavItem rendersi depth 1", () => {
   let props;
   let mountedDrawerNav;
-  const appDrawerNavItem = () => {
+  const appDrawerNavItem1 = () => {
     if (!mountedDrawerNav) {
       mountedDrawerNav = mount(
         <AppDrawerNavItem {...props} />
@@ -46,15 +46,16 @@ describe("AppDrawerNavItem renders", () => {
     props = {
       depth: 1,
       title: "a",
-      isActiveNotif: "1",
+      isActiveNotif: 1,
     };
     mountedDrawerNav = undefined;
   });
   
   // All tests will go here
   it("always rendered a ListItem", () => {
-    const listItem = appDrawerNavItem().find("ListItem");
-    expect(listItems.length).toBeGreaterThan(0);
+    const listItem = appDrawerNavItem1().find("ListItem");
+    expect(listItem.length).toBeGreaterThan(0);
   });
 
 });
+
