@@ -62,5 +62,20 @@ describe("AppDrawerNavItem rendersi depth 1", () => {
     expect(button.length).toBeGreaterThan(0);
   });
 
+  it("always rendered a Div", () => {
+    const div = appDrawerNavItem1().find("ListItem").find("Button").find("div");
+    expect(div.length).toBeGreaterThan(0);
+  });
+
+  it("always rendered a Div in div", () => {
+    const div = appDrawerNavItem1().find("ListItem").find("Button").find("div").find("div");
+    expect(div.length).toBeGreaterThan(0);
+  });
+
+  it("always rendered a svg", () => {
+    const svg = appDrawerNavItem1().find("ListItem").find("Button").find("div").find("div").find("svg");
+    expect(svg.length).toBeGreaterThan(0);
+  });
+
 });
 
